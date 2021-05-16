@@ -34,5 +34,6 @@ EcoLuz é um projeto desenvolvido pelos integrantes da Guilda Maker com objetivo
 - Usar um led RGB WS2812 para fornecer status do dispositivo
 - Externalizar os IOs do MCU para extensão
 - Deve caber dentro de uma tomada na parede
+- Usar um receptor IR 1838B
 
 
