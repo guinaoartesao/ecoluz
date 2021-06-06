@@ -1,0 +1,29 @@
+#include <IRremote.h>
+
+const int relayPin = 18;
+const byte IR_RECEIVE_PIN = 15;
+
+void setup()
+{
+   Serial.begin(9600);
+   pinMode(relayPin, OUTPUT);
+   IrReceiver.begin(IR_RECEIVE_PIN);
+}
+
+void loop()
+{
+   if (IrReceiver.decode())
+   {
+      Serial.println(IrReceiver.decodedIRData.command, HEX);
+      //Serial.println(IrReceiver.decodedIRData.command);
+      if (IrReceiver.decodedIRData.command != 0 && IrReceiver.decodedIRData.command != 68)
+      {
+        digitalWrite(relayPin, LOW);
+      }
+      else
+      {
+        digitalWrite(relayPin, HIGH);
+      }
+      IrReceiver.resume();
+   }   
+}
